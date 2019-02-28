@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="CouponType" value="Percentage"/>
+    <classes>
+      <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass">
+        <methods>
+          <include name="InitiateDriver"/>
+          <include name="CreatePercentageTypePromotionScreen"/>
+          <include name="DirectToCreatePromotionScreen"/>
+          <include name="AddContent"/>
+        </methods>
+      </class> <!-- com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

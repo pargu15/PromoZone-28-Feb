@@ -2,16 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
-    <parameter name="CouponType" value="Percentage"/>
+    <parameter name="CouponType" value="Freebie"/>
     <classes>
-      <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass">
+      <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2">
         <methods>
           <include name="InitiateDriver"/>
-          <include name="CreatePercentageTypePromotionScreen"/>
-          <include name="DirectToCreatePromotionScreen"/>
+          <include name="DriverClose"/>
           <include name="AddContent"/>
+          <include name="DirectToCreatePromotionScreen"/>
+          <include name="CreatePromotion" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass -->
+      </class> <!-- com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

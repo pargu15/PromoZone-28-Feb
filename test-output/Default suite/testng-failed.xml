@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.PromoZone.Admin.MainTestPackage.LoginMainClass">
+      <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2">
         <methods>
-          <include name="Login"/>
-          <include name="DriverClose"/>
           <include name="InitiateDriver"/>
+          <include name="AddContent"/>
+          <include name="DirectToCreatePromotionScreen"/>
+          <include name="CreatePromotion"/>
         </methods>
-      </class> <!-- com.PromoZone.Admin.MainTestPackage.LoginMainClass -->
+      </class> <!-- com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

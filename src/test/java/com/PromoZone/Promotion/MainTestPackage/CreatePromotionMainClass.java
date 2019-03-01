@@ -14,55 +14,118 @@ public class CreatePromotionMainClass {
 	
 	@BeforeClass
 	public static void InitiateDriver() throws Exception {
-		
+		try {
 		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\src\\resources\\chromedriver.exe");
 		DriverInitiation.getDriver().get("https://192.168.100.62/promozone/login");
 		LoginPageActions loginActions = new LoginPageActions();
-		loginActions.LoginIntoApp();
-		
+		loginActions.LoginIntoApp();	
 	}
+		catch(Exception e)
+		{
+			System.out.println(e);
+			throw(e);
+		}
+	}
+	
 	@Test(priority=1)
 	public void DirectToCreatePromotionScreen() throws Exception{
+		try {
 		CreatePromotionActions createPromotionActions = new CreatePromotionActions();
 		createPromotionActions.DirectToCreatePromotionScreen();
 	}
+		catch(Exception e)
+		{
+			System.out.println(e);
+			throw(e);
+		}
+	}
 	
-	/*
+	
 	@Test(dependsOnMethods = "DirectToCreatePromotionScreen")
-	//@Parameters("CouponType")
-	public void CreateFixedPromotionScreen() throws Exception{
-		
+	@Parameters("CouponType")
+	public void CreatePromotion(String CouponType) throws Exception{
 		CreatePromotionActions createPromotionActions = new CreatePromotionActions();
+		if(CouponType.equalsIgnoreCase("Fixed"))
+		{
+		try {
+	//	CreatePromotionActions createPromotionActions = new CreatePromotionActions();
 		createPromotionActions.FixedCouponPromotion();
 	}
-	
-	@Test(dependsOnMethods = "DirectToCreatePromotionScreen")
-	public void CreateFreeBiePromotionScreen() throws Exception{
-		CreatePromotionActions createPromotionActions = new CreatePromotionActions();
-		createPromotionActions.FreeBieCouponPromotion();
+		catch(Exception e)
+		{
+			System.out.println(e);
+			throw(e);
+		}
+		}
+		else if 
+		(CouponType.equalsIgnoreCase("Percentage"))
+		{
+			try{
+				createPromotionActions.PercentageCouponPromotion();
+			}
+				catch(Exception e)
+				{
+					System.out.println(e);
+					throw(e);
+				}
+			}
+		else if(CouponType.equalsIgnoreCase("FreeBie"))
+		{
+			try{
+				createPromotionActions.FreeBieCouponPromotion();
+			}
+				catch(Exception e)
+				{
+					System.out.println(e);
+					throw(e);
+				}
+			}
+		else if(CouponType.equalsIgnoreCase("Advertisement"))
+		{
+			try {
+				createPromotionActions.AdvertiseTypePromotion();
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+				throw(e);
+			}
+		}
+		else {
+			//If no Promotion Type passed throw exception
+			System.out.println("Promotion Type is not correct");
+			throw new Exception("Promotion Type is not correct");
+			
+		}
 	}
-	*/
-	@Test(dependsOnMethods = "DirectToCreatePromotionScreen")
-	public void CreatePercentageTypePromotionScreen() throws Exception{
-		CreatePromotionActions createPromotionActions = new CreatePromotionActions();
-		createPromotionActions.PercentageCouponPromotion();
-	}
 	
+	@Test(dependsOnMethods = "CreatePromotion")
+	@Parameters("CouponType")
+	public void AddContent(String CouponType) throws Exception{
+		if((CouponType.equalsIgnoreCase("Fixed"))||(CouponType.equalsIgnoreCase("Percentage"))||(CouponType.equalsIgnoreCase("FreeBie"))||(CouponType.equalsIgnoreCase("Advertisement")))
+		{
+		try {
+		AddContentActions addContentActions = new AddContentActions();
+		addContentActions.AddContent(CouponType);
+	}
+	catch(Exception e)
+	{
+		System.out.println(e);
+		throw(e);
+	}
+		}
+		else {
+			System.out.println("Content Image Couldn't be uploaded");
+		}
+		}
 	
 
-	//@Test(dependsOnMethods = {"CreateFixedPromotionScreen","CreatePercentageTypePromotionScreen","CreateFreeBiePromotionScreen"})
-	@Test(dependsOnMethods = "CreatePercentageTypePromotionScreen")
-	public void AddContent() throws Exception{
-		AddContentActions addContentActions = new AddContentActions();
-		addContentActions.AddContent();
-	}
 	
-	/*
 	@AfterClass
 	public void DriverClose() throws Exception
 	{	
 		DriverInitiation.getDriver().close();
 		DriverInitiation.getDriver().quit();
 	}
-*/
+
 }

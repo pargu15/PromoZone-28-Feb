@@ -37,6 +37,10 @@ public class CreatePromotionRepository {
 	@FindBy(xpath = "//*[@id=\"user-create\"]/div[5]/div/div/div/ul/li[3]/a")
 	public WebElement oPromotionSelection;
 	
+	@FindBy(xpath = "//*[@id=\"user-create\"]/div[5]/div/div/div/ul/li[2]/a/span[1]")
+	public WebElement oAdvertisementSelection;
+	
+	
 	@FindBy(xpath = "//*[@id=\"user-create\"]/div[6]/div/div/button")
 	public WebElement oCategoryDropDown;
 	
@@ -62,6 +66,10 @@ public class CreatePromotionRepository {
 	@FindBy(id = "freeBie")
 	public WebElement oFreeBieSelection;
 	
+	@FindBy(id = "promotion.messageToPrint")
+	public WebElement oFreeBieMessage;
+	
+	
 	@FindBy(xpath = "//*[@id=\"user-create\"]/div[23]/div/a")
 	public WebElement oCancelBtn;
 	
@@ -71,5 +79,7 @@ public class CreatePromotionRepository {
 	@FindBy(xpath = "//*[@id=\"user-create\"]/div[23]/div/button[2]")
 	public WebElement oSubmitBtn;
 
-	
+	@FindBy(xpath = "//*[@id=\"promotionStatusSuccessModal\"]/div/div/div[3]/button")
+	public WebElement oPromotionStatusPopup;
+
 }

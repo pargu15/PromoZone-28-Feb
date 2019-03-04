@@ -4,7 +4,9 @@
   <test thread-count="5" name="Test">
   <parameter name="CouponType" value="Fixed"/>
     <classes>
-      <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass"/>
+    <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass"/> 
+    
+     <!--     <class name="com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass"/> -->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

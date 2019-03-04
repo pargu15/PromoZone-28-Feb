@@ -44,11 +44,12 @@ public class CreatePromotionMainClass {
 	@Test(dependsOnMethods = "DirectToCreatePromotionScreen")
 	@Parameters("CouponType")
 	public void CreatePromotion(String CouponType) throws Exception{
+		
 		CreatePromotionActions createPromotionActions = new CreatePromotionActions();
+		
 		if(CouponType.equalsIgnoreCase("Fixed"))
 		{
 		try {
-	//	CreatePromotionActions createPromotionActions = new CreatePromotionActions();
 		createPromotionActions.FixedCouponPromotion();
 	}
 		catch(Exception e)

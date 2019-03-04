@@ -20,13 +20,13 @@ public class AddContentRepository {
 	@FindBy(xpath = "/html/body/table/tbody/tr[1]/td/table/tbody/tr[2]/td[3]/table[1]/tbody/tr/td[2]/div/img")
 	public WebElement oAddImage;
 	
-	@FindBy(id = "txtUploadFile	")
+	@FindBy(xpath = "//*[@id=\"txtUploadFile\"]	")
 	public WebElement oChooseFileBtn;
 	
-	@FindBy(id = "btnOk")
+	@FindBy(xpath = "//*[@id=\"btnOk\"]")
 	public WebElement oOKBtn;
 	
-	@FindBy(id = "addButton")
+	@FindBy(xpath = "//*[@id=\"addButton\"]")
 	public WebElement oAddImageBtn;
 	
 	

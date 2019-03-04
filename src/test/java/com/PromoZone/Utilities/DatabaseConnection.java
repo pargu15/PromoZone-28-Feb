@@ -4,12 +4,6 @@
 	import java.sql.DriverManager;
 	import java.sql.ResultSet;
 	import java.sql.Statement;
-	import java.text.SimpleDateFormat;
-	import java.util.Calendar;
-	import java.util.Date;
-	import java.util.GregorianCalendar;
-	import java.util.ResourceBundle;
-	import java.util.UUID;
 	
 	public class DatabaseConnection {
 	 Connection connection = null;

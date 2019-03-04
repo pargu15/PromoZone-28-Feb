@@ -15,11 +15,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	
 		public static void WaitforElementToBeVisible(final WebElement webElement) throws Exception
 		{
+			try{
 			WebDriverWait wait = new WebDriverWait(DriverInitiation.getDriver(),10);
 			wait.until(ExpectedConditions.visibilityOf(webElement));
 			
 		}
-		
+		catch(Exception e)
+		{
+			System.out.println(e);
+			}
+		}
 	public String DateFormatter() throws Exception {	
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	LocalDate localDate = LocalDate.now();

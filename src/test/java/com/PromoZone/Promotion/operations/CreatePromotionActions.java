@@ -1,12 +1,10 @@
 package com.PromoZone.Promotion.operations;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
-
 import com.PromoZone.Promotion.objectRepository.CreatePromotionRepository;
 import com.PromoZone.Utilities.CommonFunctions;
 import com.PromoZone.Utilities.DriverInitiation;

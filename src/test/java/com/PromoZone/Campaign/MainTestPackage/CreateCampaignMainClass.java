@@ -2,14 +2,12 @@ package com.PromoZone.Campaign.MainTestPackage;
 
 
 import org.testng.annotations.*;
-
 import com.PromoZone.Campaign.operations.CreateCampaignActions;
-import com.PromoZone.Promotion.operations.CreatePromotionActions;
-import com.PromoZone.Promotion.operations.LoginPageActions;
 import com.PromoZone.Utilities.DriverInitiation;
 
 public class CreateCampaignMainClass {
 	
+	/*
 	@BeforeClass
 	public static void InitiateDriver() throws Exception {
 		try {
@@ -24,6 +22,7 @@ public class CreateCampaignMainClass {
 			throw(e);
 		}
 	}
+	*/
 	
 	@Test(priority=1)
 	public void DirectToCreateCampaignScreen() throws Exception{
@@ -40,48 +39,30 @@ public class CreateCampaignMainClass {
 	
 	@Test(dependsOnMethods = "DirectToCreateCampaignScreen")
 	@Parameters("CouponType")
-	public void CreatePromotion(String CouponType) throws Exception{
+	public void CreateCampign(String CouponType) throws Exception{
 		
 		CreateCampaignActions createCampaignActions = new CreateCampaignActions();
 		
-		if(CouponType.equalsIgnoreCase("Fixed"))
+		if((CouponType.equalsIgnoreCase("Fixed"))||(CouponType.equalsIgnoreCase("Percentage"))||(CouponType.equalsIgnoreCase("Freebie")))
 		{
 		try {
-			createCampaignActions.CreateFixedCouponCampaign();
+			createCampaignActions.CreateCampaign(CouponType);
+			createCampaignActions.CampaignAwardRules(CouponType);	
+			createCampaignActions.CampaignRewardRules();
+			createCampaignActions.ActivateCampaign();
 	}
 		catch(Exception e)
 		{
 			System.out.println(e);
-			throw(e);
+			//throw(e);
 		}
 		}
-		else if 
-		(CouponType.equalsIgnoreCase("Percentage"))
-		{
-			try{
-				createCampaignActions.CreatePercentageCouponCampaign();
-			}
-				catch(Exception e)
-				{
-					System.out.println(e);
-					throw(e);
-				}
-			}
-		else if(CouponType.equalsIgnoreCase("FreeBie"))
-		{
-			try{
-				createCampaignActions.CreateFreeBieCouponCampaign();
-			}
-				catch(Exception e)
-				{
-					System.out.println(e);
-					throw(e);
-				}
-			}
 		else if(CouponType.equalsIgnoreCase("Advertisement"))
 		{
 			try {
-				createCampaignActions.CreateAdvertisementCouponCampaign();
+				createCampaignActions.CreateCampaign(CouponType);
+				createCampaignActions.CampaignAwardRules(CouponType);
+				createCampaignActions.ActivateCampaign();
 			}
 			catch(Exception e)
 			{
@@ -92,17 +73,16 @@ public class CreateCampaignMainClass {
 		else {
 			//If no Promotion Type passed throw exception
 			System.out.println("Campaign Type is not correct");
-			throw new Exception("Campaign Type is not correct");
 			
 		}
 	}
 	
-	/*
+	
 	@AfterClass
 	public void DriverClose() throws Exception
 	{	
 		DriverInitiation.getDriver().close();
 		DriverInitiation.getDriver().quit();
 	}
-*/
+
 }

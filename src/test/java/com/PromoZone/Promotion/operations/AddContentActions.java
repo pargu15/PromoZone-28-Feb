@@ -2,13 +2,10 @@ package com.PromoZone.Promotion.operations;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-
 import com.PromoZone.Promotion.objectRepository.AddContentRepository;
 import com.PromoZone.Utilities.CommonFunctions;
 import com.PromoZone.Utilities.DriverInitiation;
@@ -43,21 +40,18 @@ public class AddContentActions {
 			//If no Promotion Type passed throw exception
 			throw new Exception("Content Image Couldn't Be uploaded");
 		}
-		
+//		addContentRepository.oAddImageBtn.click();
 		addContentRepository.oImageName.sendKeys("Promotion Image" + " " + dtf.format(localDateTime) );
 		DriverInitiation.getDriver().switchTo().frame("promotiontxt___Frame");
 		CommonFunctions.WaitforElementToBeVisible(addContentRepository.oAddImage);
 		addContentRepository.oAddImage.click();
-	//	DriverInitiation.getDriver().switchTo().frame("contents");
-	//	DriverInitiation.getDriver().switchTo().frame("frmMain");
-	//	CommonFunctions.WaitforElementToBeVisible(addContentRepository.oChooseFileBtn);
-	//    addContentRepository.oChooseFileBtn.click();
         builder.sendKeys(Keys.SPACE).build().perform();
 		String Filepath = System.getProperty("user.dir") + "\\src\\Resources\\CouponImage.jpg";
 		CommonFunctions.uploadFile(Filepath);
 		Thread.sleep(4000);
 		builder.sendKeys(Keys.ENTER).build().perform();
 		Thread.sleep(2000);
+		DriverInitiation.getDriver().switchTo().parentFrame();
 		CommonFunctions.WaitforElementToBeVisible(addContentRepository.oAddImageBtn);
 		addContentRepository.oAddImageBtn.click();
 		System.out.println("Image Added To Promotion Successfully");
@@ -66,7 +60,7 @@ public class AddContentActions {
 		catch(Exception e)
 		{
 			System.out.println(e);
-			//throw(e);
+	
 		}
 	}
 

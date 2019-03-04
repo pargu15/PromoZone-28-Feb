@@ -1,47 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="32026" started-at="2019-03-01T05:38:16Z" finished-at="2019-03-01T05:38:48Z">
+  <suite name="Suite" duration-ms="50704" started-at="2019-03-04T09:31:54Z" finished-at="2019-03-04T09:32:44Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="32026" started-at="2019-03-01T05:38:16Z" finished-at="2019-03-01T05:38:48Z">
-      <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2">
-        <test-method status="PASS" signature="InitiateDriver()[pri:0, instance:com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2@598067a5]" name="InitiateDriver" is-config="true" duration-ms="8234" started-at="2019-03-01T05:38:16Z" finished-at="2019-03-01T05:38:24Z">
+    <test name="Promotion Creation" duration-ms="33569" started-at="2019-03-04T09:31:54Z" finished-at="2019-03-04T09:32:27Z">
+      <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass">
+        <test-method status="PASS" signature="InitiateDriver()[pri:0, instance:com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass@31ef45e3]" name="InitiateDriver" is-config="true" duration-ms="9410" started-at="2019-03-04T09:31:54Z" finished-at="2019-03-04T09:32:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- InitiateDriver -->
-        <test-method status="PASS" signature="DirectToCreatePromotionScreen()[pri:1, instance:com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2@598067a5]" name="DirectToCreatePromotionScreen" duration-ms="1360" started-at="2019-03-01T05:38:24Z" finished-at="2019-03-01T05:38:26Z">
+        <test-method status="PASS" signature="DirectToCreatePromotionScreen()[pri:1, instance:com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass@31ef45e3]" name="DirectToCreatePromotionScreen" duration-ms="1395" started-at="2019-03-04T09:32:03Z" finished-at="2019-03-04T09:32:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DirectToCreatePromotionScreen -->
-        <test-method status="PASS" signature="CreatePromotion(java.lang.String)[pri:0, instance:com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2@598067a5]" name="CreatePromotion" duration-ms="3878" started-at="2019-03-01T05:38:26Z" depends-on-methods="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2.DirectToCreatePromotionScreen" finished-at="2019-03-01T05:38:29Z">
+        <test-method status="PASS" signature="CreatePromotion(java.lang.String)[pri:0, instance:com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass@31ef45e3]" name="CreatePromotion" duration-ms="3723" started-at="2019-03-04T09:32:05Z" depends-on-methods="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass.DirectToCreatePromotionScreen" finished-at="2019-03-04T09:32:08Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Fixed]]>
+                <![CDATA[Freebie]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreatePromotion -->
-        <test-method status="PASS" signature="AddContent(java.lang.String)[pri:0, instance:com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2@598067a5]" name="AddContent" duration-ms="15816" started-at="2019-03-01T05:38:29Z" depends-on-methods="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2.CreatePromotion" finished-at="2019-03-01T05:38:45Z">
+        <test-method status="PASS" signature="AddContent(java.lang.String)[pri:0, instance:com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass@31ef45e3]" name="AddContent" duration-ms="18983" started-at="2019-03-04T09:32:08Z" depends-on-methods="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass.CreatePromotion" finished-at="2019-03-04T09:32:27Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Fixed]]>
+                <![CDATA[Freebie]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AddContent -->
-        <test-method status="PASS" signature="DriverClose()[pri:0, instance:com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2@598067a5]" name="DriverClose" is-config="true" duration-ms="2692" started-at="2019-03-01T05:38:45Z" finished-at="2019-03-01T05:38:48Z">
+      </class> <!-- com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass -->
+    </test> <!-- Promotion Creation -->
+    <test name="Campaign Creation" duration-ms="17059" started-at="2019-03-04T09:32:27Z" finished-at="2019-03-04T09:32:44Z">
+      <class name="com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass">
+        <test-method status="PASS" signature="DirectToCreateCampaignScreen()[pri:1, instance:com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass@73846619]" name="DirectToCreateCampaignScreen" duration-ms="1390" started-at="2019-03-04T09:32:27Z" finished-at="2019-03-04T09:32:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DirectToCreateCampaignScreen -->
+        <test-method status="PASS" signature="CreateCampign(java.lang.String)[pri:0, instance:com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass@73846619]" name="CreateCampign" duration-ms="12919" started-at="2019-03-04T09:32:29Z" depends-on-methods="com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass.DirectToCreateCampaignScreen" finished-at="2019-03-04T09:32:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Freebie]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateCampign -->
+        <test-method status="PASS" signature="DriverClose()[pri:0, instance:com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass@73846619]" name="DriverClose" is-config="true" duration-ms="2744" started-at="2019-03-04T09:32:42Z" finished-at="2019-03-04T09:32:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DriverClose -->
-      </class> <!-- com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2 -->
-    </test> <!-- Test -->
+      </class> <!-- com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass -->
+    </test> <!-- Campaign Creation -->
   </suite> <!-- Suite -->
 </testng-results>

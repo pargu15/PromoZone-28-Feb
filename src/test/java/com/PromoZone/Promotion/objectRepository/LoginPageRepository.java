@@ -14,6 +14,4 @@ public class LoginPageRepository {
 	@FindBy(xpath = "/html/body/div/div/div[1]/div/div[3]/div[2]/span")
 	public WebElement oWelcomeText;
 	
-	
-	
 }

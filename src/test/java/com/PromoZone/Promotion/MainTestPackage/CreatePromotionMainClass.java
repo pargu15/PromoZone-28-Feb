@@ -2,7 +2,6 @@ package com.PromoZone.Promotion.MainTestPackage;
 
 
 import org.testng.annotations.*;
-
 import com.PromoZone.Promotion.operations.AddContentActions;
 import com.PromoZone.Promotion.operations.CreatePromotionActions;
 import com.PromoZone.Promotion.operations.LoginPageActions;
@@ -121,12 +120,12 @@ public class CreatePromotionMainClass {
 		}
 	
 
-	
+	/*
 	@AfterClass
 	public void DriverClose() throws Exception
 	{	
 		DriverInitiation.getDriver().close();
-		DriverInitiation.getDriver().quit();
+		//DriverInitiation.getDriver().quit();
 	}
-
+*/
 }

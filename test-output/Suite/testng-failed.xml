@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test thread-count="5" name="Test(failed)">
-    <parameter name="CouponType" value="Freebie"/>
+  <test thread-count="5" name="Test2(failed)">
+    <parameter name="CouponType" value="fixed"/>
     <classes>
-      <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2">
+      <class name="com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass">
         <methods>
+          <include name="CreateCampign"/>
+          <include name="DirectToCreateCampaignScreen"/>
           <include name="InitiateDriver"/>
-          <include name="DriverClose"/>
-          <include name="AddContent"/>
-          <include name="DirectToCreatePromotionScreen"/>
-          <include name="CreatePromotion" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass2 -->
+      </class> <!-- com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

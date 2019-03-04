@@ -2,14 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 	<parameter name="CouponType" value="Freebie"/>
-  <test thread-count="5" name="Promotion Creation">
+  <test verbose="2" thread-count="5" name="Promotion Creation">
     <classes>
    <class name="com.PromoZone.Promotion.MainTestPackage.CreatePromotionMainClass"/> 
-    </classes>
-    </test>
-    <test thread-count="5" name="Campaign Creation">
-    <classes>
-    <class name="com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass"/>
+   <class name="com.PromoZone.Campaign.MainTestPackage.CreateCampaignMainClass"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -94,48 +94,6 @@ public class CreateCampaignActions {
 	}
 		}
 	
-	public void CreateAdvetisementCampaign() throws Exception
-	
-	{
-	try
-	{
-		createCampaignRepository.oCampaignName.sendKeys("Advertisement Campaign"+ " " + dtf2.format(localDateTime)); 
-		createCampaignRepository.oCampaigndescription.sendKeys("Advertisement Campaign Description");
-		createCampaignRepository.oPromotionSelectionDropdown.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oPromotionSelection);
-		createCampaignRepository.oPromotionSelection.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oSponsor);
-		createCampaignRepository.oSponsor.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oSponsorSelection);
-		createCampaignRepository.oSponsorSelection.click();
-		jse.executeScript("window.scrollBy(0,250)", "");
-		createCampaignRepository.oStartDateCalendar.click();
-		createCampaignRepository.oStartDateSelection.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oEndDateSelection);
-		createCampaignRepository.oEndDateSelection.sendKeys(dtf.format(localDateTime2));;
-		createCampaignRepository.oCampaignNoOfRepeats.clear();
-		createCampaignRepository.oCampaignNoOfRepeats.sendKeys("50");
-		jse.executeScript("window.scrollBy(0,250)", "");
-		createCampaignRepository.oPayPerPromotion.sendKeys("1");
-		createCampaignRepository.oPerDayBudget.sendKeys("999999");
-		createCampaignRepository.oTotalBudget.sendKeys("999999");
-		jse.executeScript("window.scrollBy(0,250)", "");
-		createCampaignRepository.oMulitpleRedemptionCheckBox.click();
-		createCampaignRepository.oNumberOfMultipleRedemption.sendKeys("10");
-		createCampaignRepository.oMaxDailyRedemptionPerCoupon.sendKeys("100");
-		createCampaignRepository.oNextBtn.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oPrintAreaText);
-		System.out.println("User directed to Award Rule Screen Successfully");
-		
-		
-	}
-	catch(Exception e)
-	{
-		System.out.println(e);
-		throw(e);
-	}
-		}
-	
 	
 	public void CampaignAwardRules(String CouponType) throws Exception
 	{

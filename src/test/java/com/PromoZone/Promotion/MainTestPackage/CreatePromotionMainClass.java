@@ -83,7 +83,7 @@ public class CreatePromotionMainClass {
 		else if(CouponType.equalsIgnoreCase("Advertisement"))
 		{
 			try {
-				createPromotionActions.AdvertiseTypePromotion();
+				createPromotionActions.AdvertisementPromotion();
 			}
 			catch(Exception e)
 			{

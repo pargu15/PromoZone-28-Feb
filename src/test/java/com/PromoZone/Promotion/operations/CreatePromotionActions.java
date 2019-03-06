@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import com.PromoZone.Promotion.objectRepository.CreatePromotionRepository;
 import com.PromoZone.Utilities.CommonFunctions;
 import com.PromoZone.Utilities.DriverInitiation;
+import com.PromoZone.Utilities.ExcelReadEvent;
+import com.PromoZone.Utilities.ExcelTypes;
 
 public class CreatePromotionActions {
 	
@@ -44,10 +46,12 @@ public class CreatePromotionActions {
 	{
 	try
 	{
-		
-		createPromotionRepository.oPromotionName.sendKeys("Fixed Coupon"+ " " + dtf.format(localDateTime)); 
-		createPromotionRepository.oPromotionDescription.sendKeys("Fixed Coupon Promotion Description");
-		createPromotionRepository.oAdvertiser.sendKeys("Pinelabs");
+		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
+		excelReadEvent.readFromExcelxlsx(0, 1, ExcelTypes.Excel1);
+
+		createPromotionRepository.oPromotionName.sendKeys(excelReadEvent.getPromotionName() + " " + dtf.format(localDateTime));
+		createPromotionRepository.oPromotionDescription.sendKeys(excelReadEvent.getPromotionDescription());
+		createPromotionRepository.oAdvertiser.sendKeys(excelReadEvent.getAdvertisers());
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
 		createPromotionRepository.oAdvertiserSelection.click();
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
@@ -61,7 +65,7 @@ public class CreatePromotionActions {
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
 		createPromotionRepository.oCategorySelection.click();
 		createPromotionRepository.oConstatntFactorSelection.click();
-		createPromotionRepository.oConstatntValue.sendKeys("15");
+		createPromotionRepository.oConstatntValue.sendKeys(excelReadEvent.getConstanValue());
 		createPromotionRepository.oSubmitBtn.click();
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
 		createPromotionRepository.oPromotionStatusPopup.click();
@@ -79,9 +83,11 @@ public class CreatePromotionActions {
 	{
 	try
 	{
-		createPromotionRepository.oPromotionName.sendKeys("Percentage Discount" + " " + dtf.format(localDateTime));
-		createPromotionRepository.oPromotionDescription.sendKeys("Percentage Discount Coupon Description");
-		createPromotionRepository.oAdvertiser.sendKeys("Pinelabs");
+		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
+		excelReadEvent.readFromExcelxlsx(0, 2, ExcelTypes.Excel1);
+		createPromotionRepository.oPromotionName.sendKeys(excelReadEvent.getPromotionName() + " " + dtf.format(localDateTime));
+		createPromotionRepository.oPromotionDescription.sendKeys(excelReadEvent.getPromotionDescription());
+		createPromotionRepository.oAdvertiser.sendKeys(excelReadEvent.getAdvertisers());
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
 		createPromotionRepository.oAdvertiserSelection.click();
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
@@ -95,7 +101,7 @@ public class CreatePromotionActions {
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
 		createPromotionRepository.oCategorySelection.click();
 		createPromotionRepository.oPercentageSelection.click();
-		createPromotionRepository.oPercentageValue.sendKeys("20");
+		createPromotionRepository.oPercentageValue.sendKeys(excelReadEvent.getConstanValue());
 		createPromotionRepository.oSubmitBtn.click();
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
 		createPromotionRepository.oPromotionStatusPopup.click();
@@ -112,9 +118,12 @@ public class CreatePromotionActions {
 	{
 	try
 	{
-		createPromotionRepository.oPromotionName.sendKeys("FreeBie Coupon" + " " + dtf.format(localDateTime));
-		createPromotionRepository.oPromotionDescription.sendKeys("Freebie Coupon Description");
-		createPromotionRepository.oAdvertiser.sendKeys("Pinelabs");
+		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
+		excelReadEvent.readFromExcelxlsx(0, 3, ExcelTypes.Excel1);
+		
+		createPromotionRepository.oPromotionName.sendKeys(excelReadEvent.getPromotionName() + " " + dtf.format(localDateTime));
+		createPromotionRepository.oPromotionDescription.sendKeys(excelReadEvent.getPromotionDescription());
+		createPromotionRepository.oAdvertiser.sendKeys(excelReadEvent.getAdvertisers());
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
 		createPromotionRepository.oAdvertiserSelection.click();
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
@@ -128,7 +137,7 @@ public class CreatePromotionActions {
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
 		createPromotionRepository.oCategorySelection.click();
 		createPromotionRepository.oFreeBieSelection.click();
-		createPromotionRepository.oFreeBieMessage.sendKeys("Sample Freebie Message");
+		createPromotionRepository.oFreeBieMessage.sendKeys(excelReadEvent.getConstanValue());
 		createPromotionRepository.oSubmitBtn.click();
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
 		createPromotionRepository.oPromotionStatusPopup.click();
@@ -143,16 +152,18 @@ public class CreatePromotionActions {
 	
 	}
 	
-	public void AdvertiseTypePromotion() throws Exception
+	public void AdvertisementPromotion() throws Exception
 	
 	{
 		
 	
 	try
 	{
-		createPromotionRepository.oPromotionName.sendKeys("Advertisement" + " " + dtf.format(localDateTime));
-		createPromotionRepository.oPromotionDescription.sendKeys("Freebie Coupon Description");
-		createPromotionRepository.oAdvertiser.sendKeys("Pinelabs");
+		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
+		excelReadEvent.readFromExcelxlsx(0, 4, ExcelTypes.Excel1);
+		createPromotionRepository.oPromotionName.sendKeys(excelReadEvent.getPromotionName() + " " + dtf.format(localDateTime));
+		createPromotionRepository.oPromotionDescription.sendKeys(excelReadEvent.getPromotionDescription());
+		createPromotionRepository.oAdvertiser.sendKeys(excelReadEvent.getAdvertisers());
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
 		createPromotionRepository.oAdvertiserSelection.click();
 		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);

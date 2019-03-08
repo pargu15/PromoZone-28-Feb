@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import com.PromoZone.Campaign.objectRepository.CreateCampaignRepository;
 import com.PromoZone.Utilities.CommonFunctions;
 import com.PromoZone.Utilities.DriverInitiation;
+import com.PromoZone.Utilities.ExcelReadEvent;
+import com.PromoZone.Utilities.ExcelTypes;
 
 public class CreateCampaignActions {
 	
@@ -20,6 +22,7 @@ public class CreateCampaignActions {
 	DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd.MM.yyyy HH.mm");
 	
 	
+	
 	JavascriptExecutor jse = (JavascriptExecutor)DriverInitiation.getDriver();
 	
 	Logger logger = Logger.getLogger("devpinoyLogger"); // To generate the log file
@@ -29,6 +32,7 @@ public class CreateCampaignActions {
 	
 	public void DirectToCreateCampaignScreen() throws Exception
 	{
+		
 		try {
 		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oCampaignDropDown);
 		logger.debug("Direct to Campaign Screen");
@@ -47,6 +51,8 @@ public class CreateCampaignActions {
 	public void CreateCampaign(String CouponType) throws Exception
 	
 	{
+		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
+		excelReadEvent.readFromExcelxlsx(1, 1, ExcelTypes.Excel1);
 	try
 	{
 		if((CouponType.equalsIgnoreCase("Fixed"))||(CouponType.equalsIgnoreCase("Percentage"))||(CouponType.equalsIgnoreCase("Freebie"))) {

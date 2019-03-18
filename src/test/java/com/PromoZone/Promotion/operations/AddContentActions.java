@@ -20,7 +20,7 @@ public class AddContentActions {
 	LocalDateTime localDateTime = LocalDateTime.now();
 	
 	Actions builder = new Actions(DriverInitiation.getDriver());
-	
+	CommonFunctions commonFunctions = new CommonFunctions();
 	public void AddContent(String CouponType) throws Exception{
 		Thread.sleep(2000);
 		try {
@@ -28,12 +28,12 @@ public class AddContentActions {
 		if((CouponType.equalsIgnoreCase("Fixed"))||(CouponType.equalsIgnoreCase("Percentage"))||(CouponType.equalsIgnoreCase("FreeBie")))
 			{
 		jse.executeScript("window.scrollBy(0,200)", "");
-		CommonFunctions.WaitforElementToBeVisible(addContentRepository.oAddContentBtn);
+		commonFunctions.WaitforElementToBeVisible(addContentRepository.oAddContentBtn);
 		addContentRepository.oAddContentBtn.click();
 		}
 		else if(CouponType.equalsIgnoreCase("Advertisement")) {
 		jse.executeScript("window.scrollBy(0,50)", "");
-		CommonFunctions.WaitforElementToBeVisible(addContentRepository.oAddContentBtn2);
+		commonFunctions.WaitforElementToBeVisible(addContentRepository.oAddContentBtn2);
 		addContentRepository.oAddContentBtn2.click();
 			}
 		else {
@@ -43,7 +43,7 @@ public class AddContentActions {
 //		addContentRepository.oAddImageBtn.click();
 		addContentRepository.oImageName.sendKeys("Promotion Image" + " " + dtf.format(localDateTime) );
 		DriverInitiation.getDriver().switchTo().frame("promotiontxt___Frame");
-		CommonFunctions.WaitforElementToBeVisible(addContentRepository.oAddImage);
+		commonFunctions.WaitforElementToBeVisible(addContentRepository.oAddImage);
 		addContentRepository.oAddImage.click();
         builder.sendKeys(Keys.SPACE).build().perform();
 		String Filepath = System.getProperty("user.dir") + "\\src\\Resources\\CouponImage.jpg";
@@ -52,7 +52,7 @@ public class AddContentActions {
 		builder.sendKeys(Keys.ENTER).build().perform();
 		Thread.sleep(2000);
 		DriverInitiation.getDriver().switchTo().parentFrame();
-		CommonFunctions.WaitforElementToBeVisible(addContentRepository.oAddImageBtn);
+		commonFunctions.WaitforElementToBeVisible(addContentRepository.oAddImageBtn);
 		addContentRepository.oAddImageBtn.click();
 		System.out.println("Image Added To Promotion Successfully");
 		Thread.sleep(4000);

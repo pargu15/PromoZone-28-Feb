@@ -21,14 +21,15 @@ public class CreatePromotionActions {
 	Logger logger = Logger.getLogger("devpinoyLogger"); // To generate the log file
 	private final static Logger logger1 = Logger.getLogger(CreatePromotionActions.class); 
 	
+	CommonFunctions commonFunctions = new CommonFunctions();
 	
 	public void DirectToCreatePromotionScreen() throws Exception
 	{
 		try {
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionDropDown);
+			commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionDropDown);
 		logger.debug("Direct to Promotion Screen");
 		createPromotionRepository.oPromotionDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCreatePromotionBtn);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCreatePromotionBtn);
 		createPromotionRepository.oCreatePromotionBtn.click();
 		System.out.println("User directed to Create Promtion Screen");
 		}
@@ -48,26 +49,38 @@ public class CreatePromotionActions {
 	{
 		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
 		excelReadEvent.readFromExcelxlsx(0, 1, ExcelTypes.Excel1);
-
+		
+		
+		createPromotionRepository.oSubmitBtn.click();
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionNameRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionDescRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getAdvertiserRequired());
 		createPromotionRepository.oPromotionName.sendKeys(excelReadEvent.getPromotionName() + " " + dtf.format(localDateTime));
 		createPromotionRepository.oPromotionDescription.sendKeys(excelReadEvent.getPromotionDescription());
 		createPromotionRepository.oAdvertiser.sendKeys(excelReadEvent.getAdvertisers());
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
 		createPromotionRepository.oAdvertiserSelection.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
+		createPromotionRepository.oSubmitBtn.click();
+		Thread.sleep(2000);
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionCategoryRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getChannelTypeRequired());
+		createPromotionRepository.oAdvertiser2.sendKeys(excelReadEvent.getAdvertisers());
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection2);
+		createPromotionRepository.oAdvertiserSelection2.click();
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
 		createPromotionRepository.oChannelTypeDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelSelection);
      	createPromotionRepository.oChannelSelection.click();
 		createPromotionRepository.oPromotionTypeDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionSelection);
 		createPromotionRepository.oPromotionSelection.click();
 		createPromotionRepository.oCategoryDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
 		createPromotionRepository.oCategorySelection.click();
 		createPromotionRepository.oConstatntFactorSelection.click();
 		createPromotionRepository.oConstatntValue.sendKeys(excelReadEvent.getConstanValue());
-		createPromotionRepository.oSubmitBtn.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
+		createPromotionRepository.oSubmitBtn2.click();
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
 		createPromotionRepository.oPromotionStatusPopup.click();
 		System.out.println("Fixed Coupon Promotion Created");
 	}
@@ -85,25 +98,37 @@ public class CreatePromotionActions {
 	{
 		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
 		excelReadEvent.readFromExcelxlsx(0, 2, ExcelTypes.Excel1);
+		
+		createPromotionRepository.oSubmitBtn.click();
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionNameRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionDescRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getAdvertiserRequired());
 		createPromotionRepository.oPromotionName.sendKeys(excelReadEvent.getPromotionName() + " " + dtf.format(localDateTime));
 		createPromotionRepository.oPromotionDescription.sendKeys(excelReadEvent.getPromotionDescription());
 		createPromotionRepository.oAdvertiser.sendKeys(excelReadEvent.getAdvertisers());
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
 		createPromotionRepository.oAdvertiserSelection.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
+		createPromotionRepository.oSubmitBtn.click();
+		Thread.sleep(2000);
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionCategoryRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getChannelTypeRequired());
+		createPromotionRepository.oAdvertiser2.sendKeys(excelReadEvent.getAdvertisers());
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection2);
+		createPromotionRepository.oAdvertiserSelection2.click();
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
 		createPromotionRepository.oChannelTypeDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelSelection);
      	createPromotionRepository.oChannelSelection.click();
 		createPromotionRepository.oPromotionTypeDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionSelection);
 		createPromotionRepository.oPromotionSelection.click();
 		createPromotionRepository.oCategoryDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
 		createPromotionRepository.oCategorySelection.click();
 		createPromotionRepository.oPercentageSelection.click();
 		createPromotionRepository.oPercentageValue.sendKeys(excelReadEvent.getConstanValue());
-		createPromotionRepository.oSubmitBtn.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
+		createPromotionRepository.oSubmitBtn2.click();
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
 		createPromotionRepository.oPromotionStatusPopup.click();
 		System.out.println("Percentage Coupon Promotion Created");
 	}
@@ -121,25 +146,39 @@ public class CreatePromotionActions {
 		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
 		excelReadEvent.readFromExcelxlsx(0, 3, ExcelTypes.Excel1);
 		
+		createPromotionRepository.oSubmitBtn.click();
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionNameRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionDescRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getAdvertiserRequired());
+		
 		createPromotionRepository.oPromotionName.sendKeys(excelReadEvent.getPromotionName() + " " + dtf.format(localDateTime));
 		createPromotionRepository.oPromotionDescription.sendKeys(excelReadEvent.getPromotionDescription());
 		createPromotionRepository.oAdvertiser.sendKeys(excelReadEvent.getAdvertisers());
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
 		createPromotionRepository.oAdvertiserSelection.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
+		
+		createPromotionRepository.oSubmitBtn.click();
+		Thread.sleep(2000);
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionCategoryRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getChannelTypeRequired());
+		createPromotionRepository.oAdvertiser2.sendKeys(excelReadEvent.getAdvertisers());
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection2);
+		createPromotionRepository.oAdvertiserSelection2.click();
+		
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
 		createPromotionRepository.oChannelTypeDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelSelection);
      	createPromotionRepository.oChannelSelection.click();
 		createPromotionRepository.oPromotionTypeDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionSelection);
 		createPromotionRepository.oPromotionSelection.click();
 		createPromotionRepository.oCategoryDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
 		createPromotionRepository.oCategorySelection.click();
 		createPromotionRepository.oFreeBieSelection.click();
 		createPromotionRepository.oFreeBieMessage.sendKeys(excelReadEvent.getConstanValue());
-		createPromotionRepository.oSubmitBtn.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
+		createPromotionRepository.oSubmitBtn2.click();
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
 		createPromotionRepository.oPromotionStatusPopup.click();
 		System.out.println("FreeBie Coupon Promotion Created");
 	
@@ -161,23 +200,38 @@ public class CreatePromotionActions {
 	{
 		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
 		excelReadEvent.readFromExcelxlsx(0, 4, ExcelTypes.Excel1);
+		
+		createPromotionRepository.oSubmitBtn.click();
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionNameRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionDescRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getAdvertiserRequired());
+		
 		createPromotionRepository.oPromotionName.sendKeys(excelReadEvent.getPromotionName() + " " + dtf.format(localDateTime));
 		createPromotionRepository.oPromotionDescription.sendKeys(excelReadEvent.getPromotionDescription());
 		createPromotionRepository.oAdvertiser.sendKeys(excelReadEvent.getAdvertisers());
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection);
 		createPromotionRepository.oAdvertiserSelection.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
+		
+		createPromotionRepository.oSubmitBtn.click();
+		Thread.sleep(2000);
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getPromotionCategoryRequired());
+		commonFunctions.verifyElementIsPresent(createPromotionRepository.getChannelTypeRequired());
+		createPromotionRepository.oAdvertiser2.sendKeys(excelReadEvent.getAdvertisers());
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oAdvertiserSelection2);
+		createPromotionRepository.oAdvertiserSelection2.click();
+		
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelTypeDropDown);
 		createPromotionRepository.oChannelTypeDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oChannelSelection);
      	createPromotionRepository.oChannelSelection.click();
 		createPromotionRepository.oPromotionTypeDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionSelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionSelection);
 		createPromotionRepository.oAdvertisementSelection.click();
 		createPromotionRepository.oCategoryDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oCategorySelection);
 		createPromotionRepository.oCategorySelection.click();
-		createPromotionRepository.oSubmitBtn.click();
-		CommonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
+		createPromotionRepository.oSubmitBtn2.click();
+		commonFunctions.WaitforElementToBeVisible(createPromotionRepository.oPromotionStatusPopup);
 		createPromotionRepository.oPromotionStatusPopup.click();
 		System.out.println("Advertisement Created");
 	}

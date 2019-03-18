@@ -6,13 +6,15 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 	public class CommonFunctions {
 	
-		public static void WaitforElementToBeVisible(final WebElement webElement) throws Exception
+		public void WaitforElementToBeVisible(final WebElement webElement) throws Exception
 		{
 			try{
 			WebDriverWait wait = new WebDriverWait(DriverInitiation.getDriver(),10);
@@ -56,6 +58,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 			exp.printStackTrace();
 		}
 	}
+	
+	// To verify if the element is present on the page or not
+		public void verifyElementIsPresent(ReturnElement object) {
+			try {
+				if (object.getElement().isDisplayed()) {
+					System.out.println(("Element (" + object.getName() + ") is present"));
+				}
+			} catch (NoSuchElementException e) {
+				System.err.println(("Element (" + object.getName() + ") is not present"));
+			} catch (Exception e) {
+				System.err.println(("Element (" + object.getName() + ") is not present"));
+			}
+		}
 
 	}
 	

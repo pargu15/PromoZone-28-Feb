@@ -21,7 +21,7 @@ public class CreateCampaignActions {
 	LocalDateTime localDateTime2 = LocalDateTime.now().plusDays(7);
 	DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd.MM.yyyy HH.mm");
 	
-	
+	CommonFunctions commonFunctions = new CommonFunctions();
 	
 	JavascriptExecutor jse = (JavascriptExecutor)DriverInitiation.getDriver();
 	
@@ -34,13 +34,13 @@ public class CreateCampaignActions {
 	{
 		
 		try {
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oCampaignDropDown);
-		logger.debug("Direct to Campaign Screen");
-		createCampaignRepository.oCampaignDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oCreateCampaignBtn);
-		createCampaignRepository.oCreateCampaignBtn.click();
-		System.out.println("User directed to Create Campaign Screen");
-		}
+			commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oCampaignDropDown);
+			logger.debug("Direct to Campaign Screen");
+			createCampaignRepository.oCampaignDropDown.click();
+			commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oCreateCampaignBtn);
+			createCampaignRepository.oCreateCampaignBtn.click();
+			System.out.println("User directed to Create Campaign Screen");
+				}
 		catch(Exception e)
 		{
 			System.out.println(e);
@@ -51,8 +51,8 @@ public class CreateCampaignActions {
 	public void CreateCampaign(String CouponType) throws Exception
 	
 	{
-		ExcelReadEvent excelReadEvent = new ExcelReadEvent();
-		excelReadEvent.readFromExcelxlsx(1, 1, ExcelTypes.Excel1);
+		//ExcelReadEvent excelReadEvent = new ExcelReadEvent();
+		//excelReadEvent.readFromExcelxlsx(1, 1, ExcelTypes.Excel1);
 	try
 	{
 		if((CouponType.equalsIgnoreCase("Fixed"))||(CouponType.equalsIgnoreCase("Percentage"))||(CouponType.equalsIgnoreCase("Freebie"))) {
@@ -65,16 +65,16 @@ public class CreateCampaignActions {
 		}
 		createCampaignRepository.oCampaigndescription.sendKeys(CouponType + " " + "Description");
 		createCampaignRepository.oPromotionSelectionDropdown.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oPromotionSelection);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oPromotionSelection);
 		createCampaignRepository.oPromotionSelection.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oSponsor);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oSponsor);
 		createCampaignRepository.oSponsor.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oSponsorSelection);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oSponsorSelection);
 		createCampaignRepository.oSponsorSelection.click();
 		jse.executeScript("window.scrollBy(0,250)", "");
 		createCampaignRepository.oStartDateCalendar.click();
 		createCampaignRepository.oStartDateSelection.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oEndDateSelection);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oEndDateSelection);
 		createCampaignRepository.oEndDateSelection.sendKeys(dtf.format(localDateTime2));;
 		createCampaignRepository.oCampaignNoOfRepeats.clear();
 		createCampaignRepository.oCampaignNoOfRepeats.sendKeys("50");
@@ -90,7 +90,7 @@ public class CreateCampaignActions {
 		createCampaignRepository.oNumberOfMultipleRedemption.sendKeys("10");
 		createCampaignRepository.oMaxDailyRedemptionPerCoupon.sendKeys("100");
 		createCampaignRepository.oNextBtn.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oPrintAreaText);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oPrintAreaText);
 		System.out.println("User directed to Award Rule Screen Successfully");
 		
 	}
@@ -107,19 +107,19 @@ public class CreateCampaignActions {
 	{
 		createCampaignRepository.oReceiptArea.click();
 		createCampaignRepository.oReceiptAreaInclude.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oAreaSelectionDropDown);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oAreaSelectionDropDown);
 		createCampaignRepository.oAreaSelectionDropDown.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oBottomAreaSelection);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oBottomAreaSelection);
 		createCampaignRepository.oBottomAreaSelection.click();
 		createCampaignRepository.oAreaSelectionDropDown.click();
 		//createCampaignRepository.oStoreSelectionDiv.click();
 		createCampaignRepository.oTransactionBasedDiv.click();
 		jse.executeScript("window.scrollBy(0,250)", "");
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oTransactionAmountDropdown);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oTransactionAmountDropdown);
 		createCampaignRepository.oTransactionAmountDropdown.click();
 		createCampaignRepository.oTransactionAmountGreaterThan.click();
 		jse.executeScript("window.scrollBy(0,250)", "");
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oTransactionAmountInput);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oTransactionAmountInput);
 		createCampaignRepository.oTransactionAmountInput.sendKeys("50");
 		if((CouponType.equalsIgnoreCase("Fixed"))||(CouponType.equalsIgnoreCase("Percentage"))||(CouponType.equalsIgnoreCase("Freebie"))) {
 			createCampaignRepository.oAwardNextBtn.click();
@@ -145,7 +145,7 @@ public class CreateCampaignActions {
 	{
 		createCampaignRepository.oCouponValidity.click();
 		createCampaignRepository.oCouponValiditySelection.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oCouponValidityInput);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oCouponValidityInput);
 		createCampaignRepository.oCouponValidityInput.sendKeys("10");
 		createCampaignRepository.oSubmitCampaign.click();
 		System.out.println("User directed to Activate Rule Screen Successfully");
@@ -160,11 +160,11 @@ public class CreateCampaignActions {
 	{
 	try
 	{
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oFinalSubmit);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oFinalSubmit);
 		createCampaignRepository.oFinalSubmit.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oClosePopup);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oClosePopup);
 		createCampaignRepository.oClosePopup.click();
-		CommonFunctions.WaitforElementToBeVisible(createCampaignRepository.oActivateCampaignBtn);
+		commonFunctions.WaitforElementToBeVisible(createCampaignRepository.oActivateCampaignBtn);
 		createCampaignRepository.oActivateCampaignBtn.click();
 		DriverInitiation.getDriver().get("https://192.168.100.62/promozone/");
 		System.out.println("Campaign Activated Successfully");
